@@ -1,4 +1,4 @@
-import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, query, orderBy, onSnapshot, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../db';
 import { useState, useEffect } from 'react';
 import Feedback from './Feedback';
@@ -29,17 +29,20 @@ function List() {
     return () => unsubscribe();
   }, []);
 
-  const handleUpvote = async (id) => {
-    const docRef = collection(db, 'feedback').doc(id);
-    const doc = await docRef.get();
-    if (!doc.exists) {
-      console.log('No such document!');
-    } else {
-      const updatedUpvotes = doc.data().numberOfUpvotes + 1;
-      await docRef.update({
-        numberOfUpvotes: updatedUpvotes,
-      });
-    }
+  const handleUpvote = async (e) => {
+    const docRef = doc(db, "feedback", e.target.id);
+    const newUpvotesCount = recommendations.find(rec => rec.id === e.target.id).upvotes + 1
+    await updateDoc(docRef, {numberOfUpvotes: newUpvotesCount})
+    // const docRef = collection(db, 'feedback').doc(id);
+    // const doc = await docRef.get();
+    // if (!doc.exists) {
+    //   console.log('No such document!');
+    // } else {
+    //   const updatedUpvotes = doc.data().numberOfUpvotes + 1;
+    //   await docRef.update({
+    //     numberOfUpvotes: updatedUpvotes,
+    //   });
+    // }
   };
 
   return (

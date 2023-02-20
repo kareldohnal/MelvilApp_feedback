@@ -1,7 +1,7 @@
 import React from 'react';
 import './feedback.scss';
 
-function Feedback({ title, description, name, upvotes, handleUpvote }) {
+function Feedback({ title, description, name, upvotes, handleUpvote, id }) {
   return (
     <div className="feedback">
       <h3>{title}</h3>
@@ -12,7 +12,7 @@ function Feedback({ title, description, name, upvotes, handleUpvote }) {
       <p>
         <strong>Počet hlasů:</strong> {upvotes}
       </p>
-      <button onClick={handleUpvote}>Přidat hlas</button>
+      <button onClick={handleUpvote} id={id}>Přidat hlas</button>
     </div>
   );
 }
