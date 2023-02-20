@@ -1,0 +1,31 @@
+.feedback {
+  background-color: white;
+  color: #313542;
+  padding: 12px;
+  border-radius: 4px;
+  flex: 0 0 90%;
+
+  @media (min-width: 500px) {
+    flex: 0 0 43%;
+  }
+
+  @media (min-width: 850px) {
+    flex: 0 0 28%;
+  }
+
+  & h3 {
+    margin-top: 0;
+  }
+
+  button {
+    background: white;
+    display: block;
+    padding: 1rem;
+    color: #dc2240;
+    font-size: 0.8rem;
+    border-radius: 2rem;
+    border: 2px solid #dc2240;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}

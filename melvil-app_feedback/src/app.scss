@@ -1,0 +1,18 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  line-height: 1.05;
+  background-color: #313542;
+  color: white;
+  padding: 24px 12px;
+  max-width: 1600px;
+  margin: 0 auto;
+  @media (min-width: 750px) {
+    font-size: 17px;
+    padding: 50px 24px;
+  }
+  @media (min-width: 1200px) {
+    padding: 50px;
+    font-size: 18px;
+  }
+}
